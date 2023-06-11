@@ -1,0 +1,3 @@
+class Qa < User 
+
+end

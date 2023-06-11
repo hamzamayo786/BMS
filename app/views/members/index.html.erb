@@ -1,0 +1,57 @@
+<%= flash[:notice] %>
+    <div class="card my-5 rounded-0">
+    
+        <div class="card-body">
+            <h1 class="text-center"> Bug Details  </h1>
+        </div>
+    </div>
+    <div class="col-lg-12 my-2 ">
+        <%#= link_to 'Create New Bug', new_bug_path, class:"btn btn-primary btn-lg rounded-0"%>
+
+    </div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Title </th>
+            <th>Description</th>
+            <th>Priority </th>
+            <th>Type </th>
+            <th>Actions </th>
+
+        </tr>
+    </thead>
+    <tbody>
+    <% @members.each do |user| %>
+        <tr>
+            <td><%= user.email  %></td>
+            <td><%= user.encrypted_password %></td>
+           
+            <td><%= user.type %></td>
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Actions
+                    </button>
+                    <ul class="dropdown-menu bg-dark text-light" aria-labelledby="dropdownMenuButton1">
+                            <li><%#= link_to 'edit', edit_bug_path(bug),   class:'dropdown-item bg-dark text-light rounded-0'%>
+                            </li>
+                            <li><%#= link_to 'View', bug_path(bug),   class:'dropdown-item bg-dark text-light rounded-0'%>
+                            </li>
+                            <li><%#= link_to 'delete', bug_path(bug), method: :delete, 
+                            data:{confirm: "Are you sure You want to delete this bug"},
+                            class:'dropdown-item bg-dark text-light rounded-0' %>
+                            
+                            </li>
+                        </ul>
+                </div>
+            </td>
+
+
+
+            
+        </tr>
+    <%end%>
+
+    </tbody>
+
+</table>

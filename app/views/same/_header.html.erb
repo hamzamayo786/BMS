@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+  <%= link_to 'Crazzy SiTe', root_path , class:'text-light' %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <% if user_signed_in? %>  
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Accounts
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="">current User <%= current_user.email %></a></li>
+              <li><%= link_to "Sing Out", destroy_user_session_path, method: :delete , data:{confirm:"are you sure"} ,class:"dropdown-item" %></li>
+             
+            </ul>
+          </li>
+        <%else%>
+          <li><%= link_to "Sign In", new_user_session_path, class:"nav-link active"%></li>
+        <%end %>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+      
+    </div>
+  </div>
+</nav>

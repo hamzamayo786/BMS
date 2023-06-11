@@ -1,0 +1,59 @@
+<%= form_with  model: user do |form| %>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <%= form.label :email , class:"mb-2"%>
+                <%= form.text_field  :email, class:"form-control form-control-lg rounded-0"%>                
+                <% @user.errors.full_messages_for(:email).each do |message| %> 
+                    <p class="text-danger"><%= message%> </p>
+                <%end%>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <%= form.label :encrypted_password, class:"mb-2"%>
+                <%= form.password_field  :encrypted_password, class:"form-control form-control-lg rounded-0"%>                
+                <% @user.errors.full_messages_for(:encrypted_password).each do |message| %> 
+                    <p class="text-danger"><%= message%> </p>
+                <%end%>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="row">
+                    
+     <div class="col-lg-6">
+        <div class="form-group">
+            <%= form.label :password_confirmation, class:"mb-2"%>
+            <%= form.password_field  :password_confirmation, class:"form-control form-control-lg rounded-0"%>                
+            <% @user.errors.full_messages_for(:password_confirmation).each do |message| %> 
+                <p class="text-danger"><%= message%> </p>
+            <%end%>
+        </div>
+    </div>
+        
+        <div class="col-lg-6">
+            <div class="form-group">
+                <%= form.label :type, class:"mb-2"%>
+                <%= form.select  :type, options_for_select(User::TYPE, selected:
+                user.type),{prompt: 'Select Current Role'},{ class:"form-select form-select-lg
+                rounded-0" }%>
+                <% @user.errors.full_messages_for(:type).each do |message| %> 
+                    <p class="text-danger"><%= message%> </p>
+                <%end%>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-12">
+            <%= form.submit class:"btn btn-primary btn-lg rounded-0 my-2" %>
+            <%= link_to 'Back To User List', users_path,  class:"btn btn-outline-primary btn-lg rounded-0 my-2" %>
+
+        </div>
+        
+    </div>
+    
+<%end%>
+

@@ -1,0 +1,25 @@
+<div class="col-lg-12">
+    <div class="card my-5 rounded-0">
+        <div class="card-body">
+            <h1 class="text-center">Bug Details </h1>
+            <div class="row">
+                <div class="col-lg-6">
+                <h2> Bug Information</h2>
+                <p><strong>Title: </strong><%= @bug.title %></p>
+                <p><strong>priority: </strong><%= @bug.priority %></p>
+                <p><strong> Est Days: </strong><%= @bug.est_days  %></p>
+                <p><strong>Status: </strong><%= @bug.status %></p>
+                <p><strong>description: </strong><%= @bug.description %></p>
+
+            </div>          
+        </div>
+    </div>
+
+ 
+
+</div>
+<div class="col-lg-12">
+        <%= link_to 'Edit Bug', edit_bug_path(@bug), class:'btn btn-primary btn-lg rounded-0' %>
+        <%= link_to 'Back to  bug', bugs_path, class:'btn btn-outline-primary btn-lg rounded-0' %>
+
+</div>
